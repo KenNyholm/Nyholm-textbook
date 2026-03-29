@@ -2,12 +2,13 @@ project:
   type: book
 
 book:
-  title: "nyholm-textbook"
-  author: "Norah Jones"
+  title: "A Practitioner's Guide to Financial Market Analysis"
+  author: "Ken Nyholm"
   date: "3/29/2026"
   chapters:
-    - index.qmd
+    - index.qmd 
     - intro.qmd
+    - DBPensions.qmd 
     - summary.qmd
     - references.qmd
 

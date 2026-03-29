@@ -1,5 +1,18 @@
 # Preface {.unnumbered}
 
-This is a Quarto book.
+This book is a work in progress, aimed at providing a coherent and integrated treatment of financial econometrics and investment analysis within the context of modern fixed-income and multi-asset markets. My plan is to eventually cover the following topics - and possibly more as the project evolves.
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+## Planned Topics
+
+- Background tools and techniques  
+- No arbitrage, no dominance, and no kidding
+- Defined benefit pensions
+- Dynamic behaviour of yields 
+- Information embedded in the yield curve 
+- Generating return distributions
+- Portfolio optimisation
+- Returns and risks 
+- Return decomposition  
+- Evaluating trading strategies  
+  
+The overarching goal is to bridge theory and practice, and the style and structure will follow that of @Nyholm2021, combining theoretical concepts with practical examples, data-driven illustrations, and empirical applications. 

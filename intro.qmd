@@ -1,5 +1,15 @@
-# Introduction
+<p style="text-align: center;"> 
+This page is intentionally left blank
+</p>
+---
+title: "Test equations"
+format: html
+---
 
-This is a book created from markdown and executable code.
+Here is an equation:
 
-See @knuth84 for additional discussion of literate programming.
+$$
+PB = \alpha \cdot SY \cdot FS,
+$$ {#eq:PB_def}
+
+As shown in @eq:PB_def, the annual pension benefit depends on service years and final salary.
