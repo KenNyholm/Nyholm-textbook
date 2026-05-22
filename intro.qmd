@@ -1,15 +1,3 @@
 <p style="text-align: center;"> 
 This page is intentionally left blank
 </p>
----
-title: "Test equations"
-format: html
----
-
-Here is an equation:
-
-$$
-PB = \alpha \cdot SY \cdot FS,
-$$ {#eq:PB_def}
-
-As shown in @eq:PB_def, the annual pension benefit depends on service years and final salary.
