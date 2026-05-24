@@ -1,5 +1,6 @@
 project:
   type: book
+  output-dir: ../KenNyholm.github.io/textbook
 
 book:
   title: "A Practitioner's Guide to Financial Market Analysis"
@@ -11,7 +12,6 @@ book:
     - theToolbox.qmd
     - DynamicYieldCurveModels.qmd
     - DBPensions.qmd 
-    - summary.qmd
     - references.qmd
 
 bibliography: references.bib

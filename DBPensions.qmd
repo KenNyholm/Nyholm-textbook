@@ -51,15 +51,16 @@ The pension-benefit rectangle between $R$ and $D$ in the figure is then interpre
 Let $r_d$ denote the nominal discount rate and $r_{inf}$ the annual rate at which pension benefits are indexed (for example the inflation rate). The annual pension at retirement is $PB$, and it grows at the rate $r_{inf}$ each year between $R$ and $D$. Under these assumptions, the present value of the pension benefits at the retirement date $R$ can be expressed as the present value of a finite, inflation-indexed annuity:
 $$
 PV_{R}(PB) = PB \cdot \frac{1}{r_d - r_{inf}} \left[ 1 - \left(\frac{1 + r_{inf}}{1 + r_d}\right)^{t_{DR}} \right].
-$$ {#eq-PV_R_deterministic}
+$$ {#eq-PV-R-deterministic}
 If $t$ denotes the valuation date and $t_R = R - t$ the
 number of years from $t$ to retirement, the present value of the
 liabilities at the valuation date is obtained by discounting
-@PV_R_deterministic back $t_R$ years: 
+@eq-PV-R-deterministic back $t_R$ years: 
 $$
     L_{t} \;=\; PV_{t}(PB) = PV_R(PB) \cdot (1 + r_d)^{-t_R}.
-$$ {#eq-PV_t_deterministic}
-Substituting @eq-PV_t_deterministic into @eq-FR_def yields a closed-form expression for the funding ratio when both the retirement date and the date of death are assumed deterministic. In terms of @fig-pensionOverview, the deterministic-horizon valuation discounts the entire green benefit rectangle back to the valuation date $t$ using a fixed horizon of length $t_R + t_{DR}$.
+$$ {#eq-PV-t-deterministic}
+
+Substituting @eq-PV-t-deterministic into @eq-FR_def yields a closed-form expression for the funding ratio when both the retirement date and the date of death are assumed deterministic. In terms of @fig-pensionOverview, the deterministic-horizon valuation discounts the entire green benefit rectangle back to the valuation date $t$ using a fixed horizon of length $t_R + t_{DR}$.
 
 ## Generalising to survival probabilities
 

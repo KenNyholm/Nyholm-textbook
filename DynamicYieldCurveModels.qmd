@@ -279,7 +279,7 @@ Overall, this highlights two key messages. First, a very parsimonious AR(1) mode
 
 ## Risk premia and the $\mathbb{P}$ and $\mathbb{Q}$ measures
 
-To introduce risk premia in a one‑factor setting, we follow @vasicek.1977. He presents a simple and tractable model where the distinction between the $\mathbb{P}$ and $\mathbb{Q}$ measure dynamics is explicit, and where the role played by risk premia is clear. In other models, as we will see later, this principle is extended to a multi-factor setting. But, for clarity, it is probably easier to start with a 1-factor model first. Although Vasicek formulates his model in continuous time, we work in discrete time to maintain consistency with the rest of the book.
+To introduce risk premia in a one‑factor setting, we follow @vasicek.77. He presents a simple and tractable model where the distinction between the $\mathbb{P}$ and $\mathbb{Q}$ measure dynamics is explicit, and where the role played by risk premia is clear. In other models, as we will see later, this principle is extended to a multi-factor setting. But, for clarity, it is probably easier to start with a 1-factor model first. Although Vasicek formulates his model in continuous time, we work in discrete time to maintain consistency with the rest of the book.
 
 Under the (historical) $\mathbb{P}$ measure, Vasicek assumes that the short rate follows a mean-reverting Gaussian autoregressive process of order 1, which is the discrete-time analogue of a mean-reverting diffusion for the short rate.
 $$
@@ -301,14 +301,14 @@ $$
          \mathbb{E}_t^{\mathbb{Q}} \left[P_t^{(n)}\right] = \mathbb{E}^{\mathbb{Q}}_t\left[ e^{-\sum^{n}_{t=1} r_t\Delta t} \right].
 \end{align}
 $$ {#eq-P-Q}
+
 The sum $\sum_{j=0}^{n-1} r_{t+j}$ is the discrete-time analogue of the integral of the short rate that appears in continuous-time models.
 
 As we saw in @fig-model-based-yieldcurve-estimates-ar1, the estimated $\mathbb{P}$-dynamics do not generate bond prices (and thus zero-coupon yields) that fit the data particularly well. In contrast, the $\mathbb{Q}$-measure is constructed precisely so that the model can match the observed cross-section of bond prices and zero-coupon yields as closely as possible. However, the presence of two different measures naturally raises the question of how they are related: The $\mathbb{P}$-measure dynamics describe the statistical behaviour of the short rate (and hence yields) in the data, while the $\mathbb{Q}$-measure dynamics must be consistent with the no-arbitrage pricing of bonds. Moving from $\mathbb{P}$ to $\mathbb{Q}$ involves adjusting the short-rate process to reflect investors' compensation for bearing interest-rate risk; this adjustment amounts to the market price of risk. In this sense, the $\mathbb{P}$-measure captures the time-series evolution of yields, whereas the $\mathbb{Q}$-measure governs their cross-sectional behaviour across maturities at a given point in time (the shape and level of the yield curve). The same underlying state process is therefore described in two ways: under $\mathbb{P}$ to match the historical dynamics, and under $\mathbb{Q}$ to match observed prices.
 
 The $\mathbb{Q}$-measure is also often referred to as the risk-neutral measure. This terminology can appear counter-intuitive, because it is exactly the change from $\mathbb{P}$ to $\mathbb{Q}$ that embeds risk premia into prices. The point, however, is that under $\mathbb{Q}$ the adjustment is made in such a way that all discounted asset prices become martingales, so that their expected excess return (above the risk-free rate) is zero and all cash flows therefore can be discounted at the risk-free rate.[^4]
 
-Leaving the model-rigour for later, and taking a purely empirical perspective, we know that model-implied bond prices under the $\mathbb{Q}$-measure have the same exponential-affine form as the prices derived above under the $\mathbb{P}$-measure. Therefore, following
-@eq-sr-yieldCurve and @eq-An-Bn we can write
+Leaving the model-rigour for later, and taking a purely empirical perspective, we know that model-implied bond prices under the $\mathbb{Q}$-measure have the same exponential-affine form as the prices derived above under the $\mathbb{P}$-measure. Therefore, following @eq-sr-yieldCurve, @eq-An, and @eq-Bn we can write
 $$
 \begin{align}
     \mathbb{E}_t^{\mathbb{Q}}(y_t^{(n)})
@@ -317,6 +317,7 @@ $$
     &= \mathbb{E}_t^{\mathbb{Q}}\!\left(a_n + b_n r_t\right),
 \end{align}
 $$ {#eq-sr-yieldCurve-Q}
+
 which implies that
 $$
 \begin{align}
@@ -363,6 +364,7 @@ $$
         + \big(b_n^{\mathbb{Q}} - b_n^{\mathbb{P}}\big)\, r_t,
 \end{align}
 $$ {#eq-TP-def}
+
 with $a_n^{\mathbb{Q}} = A_n^{\mathbb{Q}}/n$ and $a_n^{\mathbb{P}} = A_n^{\mathbb{P}}/n$, and similarly $b_n^{\mathbb{Q}} = B_n^{\mathbb{Q}}/n$ and $b_n^{\mathbb{P}} = B_n^{\mathbb{P}}/n$.
 
 To ensure consistent market pricing and adherence to the no‑arbitrage principle, recall that bond prices are obtained from a single stochastic discount factor (SDF) $\mathcal{M}$, as in @eq-fundamentalPrice and repeated here:
@@ -836,8 +838,7 @@ A_n = A_{n-1} + B_{n-1}^{\top} k^{\mathbb{Q}}
       + \frac{1}{2} B_{n-1}^{\top} \Sigma \Sigma^{\top} B_{n-1},
 \end{align}
 $$
-which accumulates, aggregates contributions from the risk-neutral drift $k^{\mathbb{Q}}$ and the conditional variance $\Sigma \Sigma^{\top}$ over the maturity dimension.
-demonstrate that the real difference between models that exclude arbitrage by construction, and those that do not, for example the dynamic Nelson-Siegel models, is whether the constant $A_n$ is included in the model or not.
+which aggregates contributions from the risk-neutral drift $k^{\mathbb{Q}}$ and the conditional variance $\Sigma \Sigma^{\top}$ over the maturity dimension. This demonstrate that the real difference between models that exclude arbitrage by construction, and those that do not, for example the dynamic Nelson-Siegel models, is whether the constant $A_n$ is included in the model or not.
 
 # Implementation and estimation
 
@@ -903,7 +904,7 @@ The choice between them is therefore purely a matter of convenience and interpre
 the underlying model, its dynamics under $\mathbb{P}$ and $\mathbb{Q}$, and its implied
 prices and yields are unchanged.
 
-In what follows, this equivalence will be exploited in a systematic way. For the *implementation and estimation* of the Joslin--Singleton--Zhu (JSZ) [@Joslin, S. and K. J. Singleton and H. Zhu] canonical framework we work primarily with the price--affine representation, since it aligns naturally with their decomposition of the $\mathbb{Q}$--dynamics and with the separation of cross--sectional and time--series parameters. For the affine Nelson--Siegel (AFNS) and terminal rate (TRM) models, by contrast, we will report both the price--affine coefficients produced by the general recursion and the corresponding yield--affine loadings that connect directly to the familiar level--slope--curvature and terminal--rate interpretations. Throughout this section, references back to the general derivations in the previous section will make explicit when we are working in the price--affine or yield--affine convention, and how to move between them when estimating and comparing models.
+In what follows, this equivalence will be exploited in a systematic way. For the *implementation and estimation* of the Joslin--Singleton--Zhu (JSZ) [@JSZ.2011] canonical framework we work primarily with the price--affine representation, since it aligns naturally with their decomposition of the $\mathbb{Q}$--dynamics and with the separation of cross--sectional and time--series parameters. For the affine Nelson--Siegel (AFNS) and terminal rate (TRM) models, by contrast, we will report both the price--affine coefficients produced by the general recursion and the corresponding yield--affine loadings that connect directly to the familiar level--slope--curvature and terminal--rate interpretations. Throughout this section, references back to the general derivations in the previous section will make explicit when we are working in the price--affine or yield--affine convention, and how to move between them when estimating and comparing models.
 
 ## Dynamic Nelson-Siegel
 
@@ -1495,8 +1496,8 @@ $$
 y_{t,n}
 &= \frac{B_n^{(Y)\top}}{n} X_t,
 \end{align}
-
 $$ {#eq-TRM-yield-reduced-form}
+
 with $B_n^{(Y)}$ given by the closed--form expression
 @eq-TRM-Bn-closed-form multiplied by $-1$.
 
@@ -1506,7 +1507,7 @@ A central feature of the Terminal Rate Model (TRM) is that it explicitly separat
 
 To make this issue transparent, the TRM is estimated under three alternative specifications for the nominal convergence point of the short rate (under the $\mathbb{P}$ measure). First, to approximate what a traditional yield-curve model would imply, a VAR is estimated for the first three principal components of the yield curve (closely mirroring a JSZ/DNS specification), using yields from 1961--2026. The VAR is then re-estimated on a shorter sample, 1991--2026, to show how the inferred convergence point depends on the estimation window. As a third approach, an economically motivated series for $C^{\ast}$ is used. This series is constructed from the real natural rate $r^{\ast}$ of , converted to a nominal rate by adding 10-year inflation expectations from the Philadelphia Fed. This is just one simple example; in practice, one could build a richer economic model that delivers $C^{\ast}$ as a function of macroeconomic aggregates and other variables thought to drive the long-run neutral nominal rate.[^12]
 
-![Nominal short-rate convergence levels, $C^{\ast}$](img/Cstar.png){width="80.0%"}
+![Nominal short-rate convergence levels, $C^{\ast}$](img/Cstar.png){#fig-Cstar width=80.0%}
 
 *The figure plots three alternative estimates of the nominal short-rate convergence level, $C^{\ast}$, in percent. The blue line shows $C^{\ast}$ implied by a VAR(1) estimated on the first three principal components of Treasury yields using the full sample from 1961 to 2026. The orange line shows the corresponding $C^{\ast}$ estimate when the VAR is re-estimated on the subsample starting in 1991. The yellow line shows the nominal natural rate obtained by adding 10-year inflation expectations from the Philadelphia Fed to the real $r^{\ast}$ estimates of @holston_etal.17. All series are monthly and are plotted over the period shown on the horizontal axis.*
 
@@ -1549,17 +1550,17 @@ Taken together, @fig-termpremia illustrates the central practical message of the
 [^9]: See also @Nyholm2021
 
 [^10]: We see this through an example. For $n=3$, we have:
-    $$
+$$
 \begin{align}
         B^{\top}_1 &= -\rho^{\top}_1 \nonumber \\
         B^{\top}_2 &= B^{\top}_1 \Phi^\mathbb{Q} - \rho^{\top}_1 = -\rho^{\top}_1 \Phi^\mathbb{Q} - \rho^{\top}_1 \nonumber \\
         B^{\top}_3 &= B^{\top}_2 \Phi^\mathbb{Q} - \rho^{\top}_1 = (-\rho^{\top}_1 \Phi^\mathbb{Q} - \rho^{\top}_1) \Phi^\mathbb{Q} - \rho^{\top}_1 \nonumber \\
          &= -\rho^{\top}_1 \left(\Phi^\mathbb{Q}\right)^2 - \rho^{\top}_1 \Phi^\mathbb{Q} - \rho^{\top}_1 \nonumber \\
          &= -\rho^{\top}_1 \left(  \left(\Phi^\mathbb{Q}\right)^2 + \left(\Phi^\mathbb{Q}\right)^1 + \left(\Phi^\mathbb{Q}\right)^0    \right) \nonumber \\
-         &= -\rho^{\top}_1 \left[  \sum_{k=0}^2\left( \Phi^\mathbb{Q} \right)^k \right] \nonumber \nonumber
+         &= -\rho^{\top}_1 \left[  \sum_{k=0}^2\left( \Phi^\mathbb{Q} \right)^k \right] \nonumber
          %      \text{so,} \nonumber \\
         %  B_3&= -\left[  \sum_{k=0}^2\left( \Phi^\mathbb{Q} \right)^k \right]^{\top} \rho_1, \nonumber
-    \end{align}
+\end{align}
 $$
     which generalises to equation @eq-Bn-recur-final.
 
