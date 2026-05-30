@@ -397,7 +397,7 @@ The money markets are relevant for other ECB activities as well. In the manageme
 
 # Bond Prices and Yields
 
-In equilibrium, all asset prices are determined by a common pricing mechanism that values future payoffs after adjusting for their risk. Following , the fundamental pricing relation is:
+In equilibrium, all asset prices are determined by a common pricing mechanism that values future payoffs after adjusting for their risk. Following @Cochrane2001, the fundamental pricing relation is:
 $$  
 \begin{align}
     P_t = \mathbb{E}_t\!\left( \mathcal{M}_{t+1} x_{t+1}\right),
