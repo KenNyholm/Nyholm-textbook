@@ -4,11 +4,9 @@ This book is a work in progress, aimed at providing a coherent and integrated tr
 
 ## Planned Topics
 
-- Background information and tools
-- Dynamic behaviour of yields
+- Background information
 - Yield curve modelling and forecasting
 - Defined benefit pensions 
-- Information embedded in the yield curve 
 - Generating return distributions
 - Portfolio optimisation
 - Returns and risks 
