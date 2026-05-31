@@ -25,6 +25,7 @@ jobs:
           repository: KenNyholm/KenNyholm.github.io
           token: ${{ secrets.PAGES_PAT }}
           path: main-site
+          ref: gh-pages
 
       - name: Copy rendered book into textbook/ folder
         run: |
