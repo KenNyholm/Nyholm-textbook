@@ -5,7 +5,7 @@ project:
 book:
   title: "A Practitioner's Guide to Financial Market Analysis"
   author: "Ken Nyholm"
-  date: "5/22/2026"
+  date: today
   chapters:
     - index.qmd 
     - theToolbox.qmd
